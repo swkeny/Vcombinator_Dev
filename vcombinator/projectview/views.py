@@ -1,0 +1,42 @@
+from django.http import HttpResponse
+from django.http import JsonResponse
+from django.template import loader
+
+from .models import Project, Resource, ProjectResource
+
+
+def index(request):
+    wrapper = []
+    json_result = {}
+    json_result["name"] = "Projects" # Root Level
+    projects = [] # Initialize Projects list. We will append projects to this to keep track of
+                  # which ones we've seen
+    first_level = [] # We will attach this list of Resources (Children) to the Root Level
+    for prk in ProjectResource.objects.order_by('-project_id'):
+        if (prk.project.project_name not in projects):
+            projects.append(prk.project.project_name)
+            second_level = {}
+            children = []
+            second_level["name"] = prk.project.project_name
+            children_dictionary = {}
+            children_dictionary["name"] = prk.resource.resource_name
+            children.append(children_dictionary)
+            second_level["_children"] = children
+            first_level.append(second_level)
+        else:
+            if prk.resource.resource_name not in second_level["_children"]:
+                children_dictionary = {}
+                children_dictionary["name"] = prk.resource.resource_name
+                second_level["_children"].append(children_dictionary)
+
+    json_result["_children"] = first_level
+    wrapper.append(json_result)
+    return JsonResponse(wrapper, safe=False)
+
+def projectdetails(request):
+    project_list = Project.objects.order_by('-submission_date')
+    template = loader.get_template('projectlist.html')
+    context = {
+        'project_list': project_list,
+    }
+    return HttpResponse(template.render(context, request))
