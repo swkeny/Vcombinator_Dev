@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^projects/', include('projectview.urls')), #End point to serve up project/resource json
     url(r'^projecttree/', TemplateView.as_view(template_name='project.html')), # redirect to Mike's project.html file
-    url(r'^main/', include('mainpage.urls')),
+    url(r'^main/', TemplateView.as_view(template_name='main.html')), # redirect to Mike's main.html file
+    url(r'^mainimages/', include('mainpage.urls')),
     url(r'^admin/', admin.site.urls),
 ]

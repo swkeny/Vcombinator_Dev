@@ -9,7 +9,7 @@
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <link href="/static/project.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.js"></script>
-    <script src="/static/projecttree.js"></script>
+
 
 <style>
 * {
@@ -133,10 +133,9 @@ nav ul a {
 <div class="row">
    <div class="col-md-8"> <span id='tree'></span> </div>
    <div class="col-md-4"> <div id='vid-container'> <embed id='vid'/></div>
-</div>x
 </div>
 </div>
-
+</div>
 <script>
 $( document ).ready(function() {
     $.get( "http://localhost:8000/projects/", {} )
@@ -177,4 +176,5 @@ $( document ).ready(function() {
 </div>
 
 </body>
+<script src="/static/projecttree.js"></script>
 </html>

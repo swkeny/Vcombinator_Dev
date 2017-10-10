@@ -22,7 +22,7 @@ class Project(models.Model):
     tech_relm = models.CharField(max_length=64, null=True)
     tech_sub_relm = models.CharField(max_length=64, null=True)
     northstar = models.CharField(max_length=64, null=True)
-    submission_date = models.DateField(default= tz.now())
+    #submission_date = models.DateField(default= tz.now())
     project_lead=models.ForeignKey(Resource, on_delete=models.CASCADE)
     round=models.CharField(max_length=6, null=True)
     project_accepted=models.BooleanField(default=False, null=False)

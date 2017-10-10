@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Website Layout</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width:600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+.footer {
+    padding: 1em;
+    color: white;
+    background-color: blue;
+    clear: left;
+    text-align: center;
+}
+</style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.mySlides {display:none;}
+</style>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+	var slideIndex = 0;
+	$( document ).ready(function() {
+		carousel();
+	});
+
+	function carousel() {
+		var i;
+		var x = document.getElementsByClassName("mySlides");
+		for (i = 0; i < x.length; i++) {
+		  x[i].style.display = "none"; 
+		}
+		slideIndex++;
+		if (slideIndex > x.length) {slideIndex = 1} 
+		x[slideIndex-1].style.display = "block"; 
+		setTimeout(carousel, 5000); 
+	}
+</script>
+
+</head>
+<body>
+
+<header class='header'>
+   <span style="float:left; color:blue; font-size: 1.5em; text-align:bottom;padding:0px 20px 0px 20px">v combinator</span>
+	<span style="float:right; color:blue;padding:0px 20px 0px 20px">Welcome </span><span style="color:blue">Sam Smith</span>
+   <span style="float:right; color:blue;padding:0px 20px 0px 20px">Login/</span><span style="color:blue">Logoff</span>
+   <span style="float:left; color:blue;padding:0px 20px 0px 20px">Create Account</span>
+</header>
+
+<div class="w3-content" style="width:1500;height:250px">
+  {% load staticfiles %}
+  <img class="mySlides" src="{% static '/mainpage/images/money-515058_1920.jpg' %}" style="width:1500;height:250px">
+  <img class="mySlides" src="{% static '/mainpage/images/money-515058_1920.jpg' %}" style="width:1500;height:250px">
+</div>
+
+<p style="color: blue">What we are up to</p>
+<div ng-app='myApp' 
+ng-controller="myCtrl" 
+>
+	<div ng-class="row"  ng-repeat="project in projects"
+	ng-style=''>
+	  <div class="column" ng-class='column'>
+				<img src={{project.img}} width='250' height='250'>
+				<p style='color:blue'>{{project.name}}</p>
+				<p>{{project.comment}}</p>
+				<a href='javascript:;' style='color:blue;float:right'>Read more</a>
+	  </div>
+</div>
+
+<div class="row footer">
+  <div class="column">
+			Who
+			<br>&nbsp;
+			<br><a href>lorem</a>
+			<br><a href>dolar</a>
+			<br><a hrep>amret</a>
+			<br><a hrep>framistan</a>
+  </div>
+  <div class="column">
+			What
+			<br>&nbsp;
+			<br><a hrep>lorem</a>
+			<br><a hrep>dolar</a>
+			<br><a hrep>amret</a>
+			<br><a hrep>framistan</a>
+  </div>
+  <div class="column">
+			Whatever
+			<br>&nbsp;
+			<br><a hrep>lorem</a>
+			<br><a hrep>dolar</a>
+			<br><a hrep>amret</a>
+			<br><a hrep>framistan</a>
+  </div>
+</div>
+</div>
+</body>
+<script>
+        var app = angular.module('myApp', [ ]);
+        app.controller('myCtrl', function($scope, $http){
+			$scope.columnStyle = {
+			'float': 'left',
+			'width': '33.33%',
+			'padding': '15px'
+		};
+
+                $scope.projects =  [{"name": "Project Nucleus", "img": "/Users/a4wk/CodeRepositories/VCombinator_Prototype/VCombinator_Prototype/vcombinator/mainpage/static/images/ipad-tablet-technology-touch.jpg", "comment": "We\u2019re Making the world a better place by constructing elegant hierarchies for maximum code reuse and extensibility"}, {"name": "Project Nucleus", "img": "/Users/a4wk/CodeRepositories/VCombinator_Prototype/VCombinator_Prototype/vcombinator/mainpage/static/images/pexels-photo-247932.jpeg", "comment": "We\u2019re making the world a better place through Paxos algorithms for consensus protocols"}, {"name": "Project Neo", "img": "/Users/a4wk/CodeRepositories/VCombinator_Prototype/VCombinator_Prototype/vcombinator/mainpage/static/images/ordinateur-apple-ipad-et-imac.jpg", "comment": "We\u2019re making the world a better place through canonical data models to communicate between endpoints."}]
+
+		});
+
+ </script>
+
+</html>
