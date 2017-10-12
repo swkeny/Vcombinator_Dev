@@ -112,13 +112,27 @@ body {
 
 <div class="w3-content" style="width:1500;height:250px">
   {% load staticfiles %}
-  <img class="mySlides" src="{% static '/mainpage/images/money-515058_1920.jpg' %}" style="width:1500;height:250px">
-  <img class="mySlides" src="{% static '/mainpage/images/money-515058_1920.jpg' %}" style="width:1500;height:250px">
+  <img class="mySlides" src="{% static '/images/money-515058_1920.jpg' %}" style="width:1500;height:250px">
+  <img class="mySlides" src="{% static '/images/money-515058_1920.jpg' %}" style="width:1500;height:250px">
 </div>
 
+<script>
+        var app = angular.module('myApp', [ ]);
+        app.controller('myCtrl', function($scope, $http){
+			$scope.columnStyle = {
+			'float': 'left',
+			'width': '33.33%',
+			'padding': '15px'
+		};
+
+                $scope.projects =  [{"name": "Project Nucleus", "img": "/Users/a4wk/CodeRepositories/VCombinator_Prototype/VCombinator_Prototype/vcombinator/mainpage/static/images/ipad-tablet-technology-touch.jpg", "comment": "We\u2019re Making the world a better place by constructing elegant hierarchies for maximum code reuse and extensibility"}, {"name": "Project Nucleus", "img": "/Users/a4wk/CodeRepositories/VCombinator_Prototype/VCombinator_Prototype/vcombinator/mainpage/static/images/pexels-photo-247932.jpeg", "comment": "We\u2019re making the world a better place through Paxos algorithms for consensus protocols"}, {"name": "Project Neo", "img": "/Users/a4wk/CodeRepositories/VCombinator_Prototype/VCombinator_Prototype/vcombinator/mainpage/static/images/ordinateur-apple-ipad-et-imac.jpg", "comment": "We\u2019re making the world a better place through canonical data models to communicate between endpoints."}]
+		});
+
+ </script>
+
 <p style="color: blue">What we are up to</p>
-<div ng-app='myApp' 
-ng-controller="myCtrl" 
+<div ng-app='myApp'
+ng-controller="myCtrl"
 >
 	<div ng-class="row"  ng-repeat="project in projects"
 	ng-style=''>
@@ -158,19 +172,6 @@ ng-controller="myCtrl"
 </div>
 </div>
 </body>
-<script>
-        var app = angular.module('myApp', [ ]);
-        app.controller('myCtrl', function($scope, $http){
-			$scope.columnStyle = {
-			'float': 'left',
-			'width': '33.33%',
-			'padding': '15px'
-		};
 
-                $scope.projects =  [{"name": "Project Nucleus", "img": "/Users/a4wk/CodeRepositories/VCombinator_Prototype/VCombinator_Prototype/vcombinator/mainpage/static/images/ipad-tablet-technology-touch.jpg", "comment": "We\u2019re Making the world a better place by constructing elegant hierarchies for maximum code reuse and extensibility"}, {"name": "Project Nucleus", "img": "/Users/a4wk/CodeRepositories/VCombinator_Prototype/VCombinator_Prototype/vcombinator/mainpage/static/images/pexels-photo-247932.jpeg", "comment": "We\u2019re making the world a better place through Paxos algorithms for consensus protocols"}, {"name": "Project Neo", "img": "/Users/a4wk/CodeRepositories/VCombinator_Prototype/VCombinator_Prototype/vcombinator/mainpage/static/images/ordinateur-apple-ipad-et-imac.jpg", "comment": "We\u2019re making the world a better place through canonical data models to communicate between endpoints."}]
-
-		});
-
- </script>
 
 </html>
