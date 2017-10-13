@@ -16,12 +16,33 @@ class Resource(models.Model):
         db_table = 'resources'
 
 class Project(models.Model):
+
+    TECH_REALM = (
+        ('DATA', 'Data Analytics'),
+        ('PLAT', 'Platforms/Visualization'),
+        ('INFRA', 'Market Infrastructure'),
+    )
+
+    TECH_SUB_REALM = (
+        ('DLT', 'Distributed Ledger Technology'),
+        ('PYT', 'Python'),
+        ('DNJ', 'Django'),
+    )
+
+    NORTH_STAR = (
+        ('alpha', 'More Efficient and New Sources of Alpha'),
+        ('cost', 'Lower Cost to Invest'),
+        ('markets', 'Enable New Markets'),
+        ('risk', 'Eliminate Uncompensated Risk'),
+        ('structure', 'New Market Structures'),
+        ('culture', 'Build and Enable Innovative Culture'),
+    )
     project_id = models.CharField(primary_key=True, max_length=100, unique=True, default=uuid.uuid4)
     project_name = models.CharField(max_length=64)
     project_description = models.CharField(max_length=1024)
-    tech_relm = models.CharField(max_length=64, null=True)
-    tech_sub_relm = models.CharField(max_length=64, null=True)
-    northstar = models.CharField(max_length=64, null=True)
+    tech_relm = models.CharField(max_length=64, null=True, choices=TECH_REALM)
+    tech_sub_relm = models.CharField(max_length=64, null=True, choices =TECH_SUB_REALM )
+    northstar = models.CharField(max_length=64, null=True, choices=NORTH_STAR)
     #submission_date = models.DateField(default= tz.now())
     project_lead=models.ForeignKey(Resource, on_delete=models.CASCADE)
     round=models.CharField(max_length=6, null=True)
