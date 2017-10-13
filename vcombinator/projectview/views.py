@@ -1,18 +1,5 @@
-from django.http import HttpResponse
-from django.http import JsonResponse
-from django.template import loader
-from django.shortcuts import render
 from django.shortcuts import redirect
-from .forms import ProjectSubmitForm
-from django.forms import inlineformset_factory
-from django.forms import modelformset_factory
 from django.http import HttpResponse
-
-from .models import Project, Resource, ProjectResource
-
-
-def index(request):
-    wrapper = []
 from django.http import JsonResponse
 from django.template import loader
 from django.shortcuts import render
@@ -65,7 +52,11 @@ def submitproject(request):
         if form.is_valid():
             project = form.save(commit=False)
             project.save()
-            return redirect('submitprojectresource')
+            response = redirect('submitprojectresource')
+            response['Location'] += '?project=' + project.project_id.urn[9:]
+            return response
+
+
 
 
     else:
@@ -73,6 +64,7 @@ def submitproject(request):
     return render(request, 'projectview/submitproject.html', {
         'form': form
     })
+
 
 
 def submitprojectresource(request):
@@ -85,6 +77,12 @@ def submitprojectresource(request):
 
     else:
         form = ProjectResourceSubmitForm()
+        for key in request.GET:
+            try:
+                form.fields[key].initial = request.GET[key]
+            except KeyError:
+                # Ignore unexpected parameters
+                pass
     return render(request, 'projectview/submitprojectresource.html', {
         'form': form
     })
