@@ -2,8 +2,23 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.template import loader
 from django.shortcuts import render
+from django.shortcuts import redirect
 from .forms import ProjectSubmitForm
-import uuid
+from django.forms import inlineformset_factory
+from django.forms import modelformset_factory
+from django.http import HttpResponse
+
+from .models import Project, Resource, ProjectResource
+
+
+def index(request):
+    wrapper = []
+from django.http import JsonResponse
+from django.template import loader
+from django.shortcuts import render
+from .forms import ProjectSubmitForm, ProjectResourceSubmitForm
+from django.forms import inlineformset_factory
+from django.forms import modelformset_factory
 
 from .models import Project, Resource, ProjectResource
 
@@ -44,26 +59,32 @@ def projectdetails(request):
     }
     return HttpResponse(template.render(context, request))
 
-
 def submitproject(request):
     if request.method == "POST":
         form = ProjectSubmitForm(request.POST)
         if form.is_valid():
             project = form.save(commit=False)
-            # project.project_id = request.POST.get("project_id")
-            # project.project_name = request.POST.get("project_name")
-            # project.project_description = request.POST.get("project_description")
-            # project.tech_relm = request.POST.get("tech_relm")
-            # project.tech_sub_relm = request.POST.get("tech_sub_relm")
-            # project.northstar = request.POST.get("northstar")
-            # project.project_lead = request.POST.get("project_lead")
-            # project.round = request.POST.get("round")
-            # project.project_accepted = request.POST.get("project_accepted")
             project.save()
+            return redirect('submitprojectresource')
 
 
     else:
         form = ProjectSubmitForm()
     return render(request, 'projectview/submitproject.html', {
+        'form': form
+    })
+
+
+def submitprojectresource(request):
+    if request.method == "POST":
+        form = ProjectResourceSubmitForm(request.POST)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.save()
+
+
+    else:
+        form = ProjectResourceSubmitForm()
+    return render(request, 'projectview/submitprojectresource.html', {
         'form': form
     })
