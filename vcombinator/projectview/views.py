@@ -22,17 +22,29 @@ def index(request):
             projects.append(prk.project.project_name)
             second_level = {}
             children = []
+
+            second_level_team_members = {}
+            second_level_project_page = {}
+            second_level_list = []
+            second_level_team_members["name"] = "Team Members"
+            second_level_project_page["name"] = "Project Page"
+
             second_level["name"] = prk.project.project_name
             children_dictionary = {}
             children_dictionary["name"] = prk.resource.resource_name
             children.append(children_dictionary)
-            second_level["_children"] = children
+            second_level_team_members["_children"] = children
+
+            second_level_list.append(second_level_team_members)
+            second_level_list.append(second_level_project_page)
+
+            second_level["_children"] = second_level_list
             first_level.append(second_level)
         else:
-            if prk.resource.resource_name not in second_level["_children"]:
+            if prk.resource.resource_name not in second_level["_children"][0]["_children"]:
                 children_dictionary = {}
                 children_dictionary["name"] = prk.resource.resource_name
-                second_level["_children"].append(children_dictionary)
+                second_level["_children"][0]["_children"].append(children_dictionary)
 
     json_result["_children"] = first_level
     wrapper.append(json_result)
