@@ -20,7 +20,7 @@ body {
 
 /* Style the header */
 .header {
-    background-color: #f1f1f1;
+     background: linear-gradient(lightgray, white);
     padding: 20px;
     text-align: center;
 }
@@ -91,46 +91,36 @@ body {
 		var i;
 		var x = document.getElementsByClassName("mySlides");
 		for (i = 0; i < x.length; i++) {
-		  x[i].style.display = "none"; 
+		  x[i].style.display = "none";
 		}
 		slideIndex++;
-		if (slideIndex > x.length) {slideIndex = 1} 
-		x[slideIndex-1].style.display = "block"; 
-		setTimeout(carousel, 5000); 
+		if (slideIndex > x.length) {slideIndex = 1}
+		x[slideIndex-1].style.display = "block";
+		setTimeout(carousel, 5000);
 	}
 </script>
 
 </head>
 <body>
+  {% load staticfiles %}
+<img style='position:absolute;top;0;left:0;'  src="{% static '/images/logo.png' %}" width='200' height='40'/>
 
 <header class='header'>
-   <span style="float:left; color:blue; font-size: 1.5em; text-align:bottom;padding:0px 20px 0px 20px">v combinator</span>
-	<span style="float:right; color:blue;padding:0px 20px 0px 20px">Welcome </span><span style="color:blue">Sam Smith</span>
-   <span style="float:right; color:blue;padding:0px 20px 0px 20px">Login/</span><span style="color:blue">Logoff</span>
-   <span style="float:left; color:blue;padding:0px 20px 0px 20px">Create Account</span>
+  <div>
+	  <span style="float:right; color:blue;padding:0px 20px 0px 20px">Welcome </span><span style="color:blue"></span>
+	  <span style="float:right; color:blue;padding:0px 20px 0px 20px">Login/</span>><span style="color:blue">Logoff</span>
+		<span style="float:right; color:blue;padding:0px 20px 0px 20px">Create Account</span>
+	</div>
 </header>
 
-<div class="w3-content" style="width:1500;height:250px">
-  {% load staticfiles %}
-  <img class="mySlides" src="{% static '/images/money-515058_1920.jpg' %}" style="width:1500;height:250px">
-  <img class="mySlides" src="{% static '/images/money-2696648_1920.jpg' %}" style="width:1500;height:250px">
+<div class="xw3-content" style="width:100%;height:350px">
+	  {% load staticfiles %}
+  <img class="mySlides" src="{% static '/images/pexels-photo-241544.jpeg' %}" width='100%' height='350'/>
+ <img class="mySlides" src="{% static '/images/pexels-photo-355988.jpeg' %}" width='100%' height='350'/>
+ <img class="mySlides" src="{% static '/images/pexels-photo-256307.jpeg' %}" width='100%' height='350'/>
 </div>
 
-<script>
-        var app = angular.module('myApp', [ ]);
-        app.controller('myCtrl', function($scope, $http){
-			$scope.columnStyle = {
-			'float': 'left',
-			'width': '33.33%',
-			'padding': '15px'
-		};
-
-                $scope.projects =  [{"name": "Project Nucleus", "img": "/Users/a4wk/CodeRepositories/VCombinator_Prototype/VCombinator_Prototype/vcombinator/mainpage/static/images/ipad-tablet-technology-touch.jpg", "comment": "We\u2019re Making the world a better place by constructing elegant hierarchies for maximum code reuse and extensibility"}, {"name": "Project Nucleus", "img": "/Users/a4wk/CodeRepositories/VCombinator_Prototype/VCombinator_Prototype/vcombinator/mainpage/static/images/pexels-photo-247932.jpeg", "comment": "We\u2019re making the world a better place through Paxos algorithms for consensus protocols"}, {"name": "Project Neo", "img": "/Users/a4wk/CodeRepositories/VCombinator_Prototype/VCombinator_Prototype/vcombinator/mainpage/static/images/ordinateur-apple-ipad-et-imac.jpg", "comment": "We\u2019re making the world a better place through canonical data models to communicate between endpoints."}]
-		});
-
- </script>
-
-<p style="color: blue">What we are up to</p>
+<p style="color: blue">Recent projects</p>
 <div ng-app='myApp'
 ng-controller="myCtrl"
 >
@@ -150,28 +140,52 @@ ng-controller="myCtrl"
 			<br>&nbsp;
 			<br><a href>lorem</a>
 			<br><a href>dolar</a>
-			<br><a hrep>amret</a>
-			<br><a hrep>framistan</a>
+			<br><a href>amret</a>
+			<br><a href>framistan</a>
   </div>
   <div class="column">
 			What
 			<br>&nbsp;
-			<br><a hrep>lorem</a>
-			<br><a hrep>dolar</a>
-			<br><a hrep>amret</a>
-			<br><a hrep>framistan</a>
+			<br><a href>lorem</a>
+			<br><a href>dolar</a>
+			<br><a href>amret</a>
+			<br><a href>framistan</a>
   </div>
   <div class="column">
 			Whatever
 			<br>&nbsp;
-			<br><a hrep>lorem</a>
-			<br><a hrep>dolar</a>
-			<br><a hrep>amret</a>
-			<br><a hrep>framistan</a>
+			<br><a href>lorem</a>
+			<br><a href>dolar</a>
+			<br><a href>amret</a>
+			<br><a href>framistan</a>
   </div>
 </div>
 </div>
 </body>
+<script>
+        var app = angular.module('myApp', [ ]);
+        app.controller('myCtrl', function($scope, $http){
+			$scope.columnStyle = {
+			'float': 'left',
+			'width': '33.33%',
+			'padding': '15px'
+		};
+                $scope.projects =  [
+						{'name':'project1',
+						 'img':'/static/images/ipad-tablet-technology-touch.jpg',
+						 'comment':'orem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.'
+						},
+						{'name':'project2',
+						 'img':'/static/images/ordinateur-apple-ipad-et-imac.jpg',
+						 'comment':'orem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.'
+						},
+						{'name':'project3',
+						 'img':'/static/images/pexels-photo-247932.jpeg',
+						 'comment':'orem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.'
+						}
+				 ]
 
+		});
+ </script>
 
 </html>
