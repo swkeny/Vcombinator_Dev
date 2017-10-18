@@ -2,7 +2,7 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.template import loader
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from .forms import ProjectSubmitForm, ProjectResourceSubmitForm
 from django.forms import inlineformset_factory
 from django.forms import modelformset_factory
@@ -28,10 +28,12 @@ def index(request):
             second_level_list = []
             second_level_team_members["name"] = "Team Members"
             second_level_project_page["name"] = "Project Page"
-
+            second_level_project_page["url"] = 'http://www.google.com'
             second_level["name"] = prk.project.project_name
+
             children_dictionary = {}
             children_dictionary["name"] = prk.resource.resource_name
+
             children.append(children_dictionary)
             second_level_team_members["_children"] = children
 
@@ -98,3 +100,7 @@ def submitprojectresource(request):
     return render(request, 'projectview/submitprojectresource.html', {
         'form': form
     })
+
+def projectdetails(request, project_id):
+    project = get_object_or_404(Project, pk=project_id)
+    return render(request, 'projectdetails.html', {'project': project})
