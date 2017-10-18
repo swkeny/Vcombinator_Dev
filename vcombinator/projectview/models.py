@@ -46,7 +46,7 @@ class Project(models.Model):
     tech_sub_relm = models.CharField(max_length=64, null=True, choices =TECH_SUB_REALM )
     northstar = models.CharField(max_length=64, null=True, choices=NORTH_STAR)
     #submission_date = models.DateField(default= tz.now())
-    project_lead=models.ForeignKey(Resource, on_delete=models.CASCADE)
+    #project_lead=models.ForeignKey(Resource, on_delete=models.CASCADE)
     round=models.CharField(max_length=6, null=True)
     project_accepted=models.BooleanField(default=False, null=False)
 
@@ -61,6 +61,7 @@ class ProjectResource(models.Model):
     relationship_id = models.CharField(primary_key=True, max_length=100, unique=True, default=uuid.uuid4)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
+    project_lead = models.BooleanField(default=False, null=False)
 
     def __str__(self):
         return self.relationship_id
@@ -102,3 +103,5 @@ class UserProfile(models.Model):
             user_profile.save()
 
     post_save.connect(create_profile, sender=User)
+
+

@@ -64,7 +64,7 @@ function update(source) {
               $('.hyper').attr('style', 'font-weight:normal');
               d3.select(this).attr('style', 'font-weight:bold');
               if (d.url != null) {
-                 //  window.location=d.url; 
+                   window.location=d.url;
                  $('#vid').remove();
 
                  $('#vid-container').append( $('<embed>')

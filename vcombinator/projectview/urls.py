@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.conf.urls import include, url
 from django.contrib import admin
+import uuid
 
 from . import views
 
@@ -9,5 +10,6 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^submitproject$', views.submitproject, name='submitproject'),
     url(r'^submitprojectresource$', views.submitprojectresource, name='submitprojectresource'),
+    url(r'^projectdetails/(?P<project_id>[^/]+)/$',views.projectdetails)
 ]
 

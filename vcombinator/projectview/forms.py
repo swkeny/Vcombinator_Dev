@@ -11,7 +11,7 @@ class ProjectSubmitForm(forms.ModelForm):
 
         model = Project
         #fields = "__all__"
-        fields = ['project_name', 'project_description', 'tech_relm', 'tech_sub_relm', 'northstar', 'project_lead']
+        fields = ['project_name', 'project_description', 'tech_relm', 'tech_sub_relm', 'northstar']
 
 
 class ProjectResourceSubmitForm(forms.ModelForm):

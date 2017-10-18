@@ -32,7 +32,10 @@ def index(request):
             second_level["name"] = prk.project.project_name
 
             children_dictionary = {}
-            children_dictionary["name"] = prk.resource.resource_name
+            if prk.project_lead:
+                children_dictionary["name"] = prk.resource.resource_name + " - Project Lead"
+            else:
+                children_dictionary["name"] = prk.resource.resource_name
 
             children.append(children_dictionary)
             second_level_team_members["_children"] = children
@@ -45,7 +48,10 @@ def index(request):
         else:
             if prk.resource.resource_name not in second_level["_children"][0]["_children"]:
                 children_dictionary = {}
-                children_dictionary["name"] = prk.resource.resource_name
+                if prk.project_lead:
+                    children_dictionary["name"] = prk.resource.resource_name + " - Project Lead"
+                else:
+                    children_dictionary["name"] = prk.resource.resource_name
                 second_level["_children"][0]["_children"].append(children_dictionary)
 
     json_result["_children"] = first_level
