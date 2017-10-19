@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 """
 
 import os, sys
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "vcombinator.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "vcombinator.vcombinator.settings")
 
 sys.path.append('/opt/python/current/app/')
 from django.core.wsgi import get_wsgi_application
