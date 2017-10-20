@@ -13,6 +13,6 @@ sys.path.append('/opt/python/run/venv/lib/python3.4/site-packages')
 
 from django.core.wsgi import get_wsgi_application
 # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "vcombinator.settings")
-print("*************************************************************")
+print("**ME****ME************ME*******************ME*********ME*************ME**ME")
 
 application = get_wsgi_application()
