@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'vcombinator.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
@@ -74,17 +74,6 @@ WSGI_APPLICATION = 'vcombinator.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'vcombinator_backend',
-        'USER': 'vcapp',
-        'PASSWORD': 'Password1234',
-        'HOST': '',
-        'PORT': '',
-    }
-}
 
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
