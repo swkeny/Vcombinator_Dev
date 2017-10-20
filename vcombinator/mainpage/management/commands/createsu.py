@@ -5,6 +5,5 @@ from django.contrib.auth.models import User
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        print("HELLOHELLOHELLOHELLOHELLO")
-        # if not User.objects.filter(username="admin").exists():
-        #     User.objects.create_superuser("Test1", "example@example.com", "SummerOf17")
+        if not User.objects.filter(username="admin").exists():
+            User.objects.create_superuser("Test1", "example@example.com", "SummerOf17")
