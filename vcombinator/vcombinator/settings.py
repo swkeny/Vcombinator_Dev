@@ -25,7 +25,7 @@ SECRET_KEY = 'gvuogi+$v2qn88zpg4758lu99((3ay59$h(+8qz5zwrvv3%t_@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['vcombinator.us-east-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['vcombinator.us-east-1.elasticbeanstalk.com', 'localhost']
 
 
 # Application definition
