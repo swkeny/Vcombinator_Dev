@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 
 import os, sys
 
-path = '/opt/python/current/app'
+path = '/opt/python/current/app/vcombinator'
 if path not in sys.path:
     sys.path.append(path)
 
