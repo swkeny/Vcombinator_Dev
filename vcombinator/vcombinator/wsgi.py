@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 """
 
 import os, sys
+print("Was I first?")
 sys.path.append('/opt/python/run/venv/lib/python3.4/site-packages')
 
 from django.core.wsgi import get_wsgi_application
