@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'vcombinator.urls'
+ROOT_URLCONF = 'vcombinator.vcombinator.urls'
 
 TEMPLATES = [
     {
@@ -146,15 +146,17 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, '..', 'www', 'static')
 
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
 AWS_S3_OBJECT_PARAMETERS = {
     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
     'CacheControl': 'max-age=94608000',
 }
 
-AWS_STORAGE_BUCKET_NAME = 'BUCKET_NAME'
-AWS_S3_REGION_NAME = 'REGION_NAME'  # e.g. us-east-2
-AWS_ACCESS_KEY_ID = 'xxxxxxxxxxxxxxxxxxxx'
-AWS_SECRET_ACCESS_KEY = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+AWS_STORAGE_BUCKET_NAME = 'cgi-img-lab-us-east-1-imfs-vcombinator'
+AWS_S3_REGION_NAME = 'us-east-1'  # e.g. us-east-2
+# AWS_ACCESS_KEY_ID = 'xxxxxxxxxxxxxxxxxxxx'
+# AWS_SECRET_ACCESS_KEY = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
 
 # Tell django-storages the domain to use to refer to static files.
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
