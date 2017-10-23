@@ -143,7 +143,8 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, '..', 'www', 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, '..', 'www', 'static')
+STATIC_ROOT = 'https://s3.amazonaws.com/cgi-img-lab-us-east-1-imfs-vcombinator/static/'
 
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
