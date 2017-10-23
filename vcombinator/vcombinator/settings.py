@@ -143,8 +143,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, '..', 'www', 'static')
-STATIC_ROOT = 'https://s3.amazonaws.com/cgi-img-lab-us-east-1-imfs-vcombinator/static'
+STATIC_ROOT = os.path.join(BASE_DIR, '..', 'www', 'static')
 
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
@@ -165,3 +164,19 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 # # Tell the staticfiles app to use S3Boto3 storage when writing the collected static files (when
 # # you run `collectstatic`).
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+STATIC_ROOT = 'https://s3.amazonaws.com/cgi-img-lab-us-east-1-imfs-vcombinator/static'
+
+
+AWS_QUERYSTRING_AUTH = False
+#static media settings
+STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+
+STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'static'), )
+STATIC_ROOT = 'staticfiles'
+
+STATICFILES_FINDERS = (
+'django.contrib.staticfiles.finders.FileSystemFinder',
+'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
