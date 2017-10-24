@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProjectImage
+# from .models import ProjectImage
 
 # Register your models here.
-admin.site.register(ProjectImage)
+# admin.site.register(ProjectImage)
