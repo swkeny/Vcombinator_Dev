@@ -36,7 +36,7 @@
     </div>
     <script>
 $( document ).ready(function() {
-    $.get( "http://localhost:8000/projects/", {} )
+    $.get( "http://vcombinator.us-east-1.elasticbeanstalk.com/projects/", {} )
   .done(function( data ) {
     treeData = data;
     loadTreeWidget();
@@ -49,5 +49,6 @@ $( document ).ready(function() {
 {% include "footer.html" %}
 
 
-<script src="/static/projecttree.js"></script>
+{% load staticfiles %}
+<script src="{% static '/projecttree.js' %}"></script>
 
