@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'gvuogi+$v2qn88zpg4758lu99((3ay59$h(+8qz5zwrvv3%t_@'
-
+git comm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'vcombinator.vcombinator.urls'
+ROOT_URLCONF = 'vcombinator.urls'
 
 TEMPLATES = [
     {
@@ -138,7 +138,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static'),
 ]
 
-#STATIC_URL = '/static/'
-STATIC_URL = 'https://s3.amazonaws.com/cgi-img-lab-us-east-1-imfs-vcombinator/static/'
+STATIC_URL = '/static/'
+#STATIC_URL = 'https://s3.amazonaws.com/cgi-img-lab-us-east-1-imfs-vcombinator/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, '..', 'www', 'static')
 print(STATIC_ROOT)

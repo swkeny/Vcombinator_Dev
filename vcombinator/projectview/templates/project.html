@@ -37,7 +37,7 @@
     </div>
     <script>
 $( document ).ready(function() {
-    $.get( "http://vcombinator.us-east-1.elasticbeanstalk.com/projects/", {} )
+    $.get( "http://localhost:8000/projects/", {} )
   .done(function( data ) {
     treeData = data;
     loadTreeWidget();

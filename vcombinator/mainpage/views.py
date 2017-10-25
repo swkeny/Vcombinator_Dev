@@ -27,6 +27,6 @@ class mainpage(generic.ListView):
 
     def get_queryset(self):
 
-        # return Project.objects.order_by('-pub_date')[:5]
+        # return Project.objects.order_by('-submission_date')[:5]
         return Project.objects.all()
 
