@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404, render
 from .forms import ProjectSubmitForm, ProjectResourceSubmitForm
+from django.views import generic
 from django.forms import inlineformset_factory
 from django.forms import modelformset_factory
 
@@ -110,3 +111,13 @@ def submitprojectresource(request):
 def projectdetails(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
     return render(request, 'projectdetails.html', {'project': project})
+
+
+class projectform(generic.ListView):
+    context_object_name = 'projects'
+    template_name = 'projectview/projectform.html'
+
+    def get_queryset(self):
+
+        # return Project.objects.order_by('-submission_date')[:5]
+        return Project.objects.all()
