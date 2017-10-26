@@ -135,7 +135,7 @@ USE_TZ = True
 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),
+    os.path.join('https://s3.amazonaws.com/cgi-img-lab-us-east-1-imfs-vcombinator/','static'),
 ]
 
 #STATIC_URL = '/static/'
