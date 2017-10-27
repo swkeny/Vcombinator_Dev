@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'vcombinator.vcombinator.urls'
+ROOT_URLCONF = 'vcombinator.urls'
 
 TEMPLATES = [
     {
@@ -134,14 +134,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR,'static'),
-# ]
-
 STATICFILES_DIRS = [
-    os.path.join('https://s3.amazonaws.com/cgi-img-lab-us-east-1-imfs-vcombinator/','static'),
+    os.path.join(BASE_DIR,'static'),
 ]
 
-#STATIC_URL = '/static/'
-STATIC_URL = 'https://s3.amazonaws.com/cgi-img-lab-us-east-1-imfs-vcombinator/static/'
+# STATICFILES_DIRS = [
+#     os.path.join('https://s3.amazonaws.com/cgi-img-lab-us-east-1-imfs-vcombinator/','static'),
+# ]
+
+STATIC_URL = '/static/'
+# STATIC_URL = 'https://s3.amazonaws.com/cgi-img-lab-us-east-1-imfs-vcombinator/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, '..', 'www', 'static')
