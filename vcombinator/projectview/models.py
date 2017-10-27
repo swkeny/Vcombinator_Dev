@@ -52,6 +52,14 @@ class Project(models.Model):
     def __str__(self):
         return self.project_name
 
+    def get_team_members(self):
+        project_resources = ProjectResource.objects.filter(project_id=self.project_id)
+        return project_resources
+
+    def get_team_member_names(self):
+        project_resources = ProjectResource.objects.filter(project_id=self.project_id)
+        return [pr.resource.resource_name for pr in project_resources]
+
     class Meta:
         db_table = 'projects'
 
