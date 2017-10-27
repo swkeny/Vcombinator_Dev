@@ -41,7 +41,7 @@ class Project(models.Model):
     )
     project_id = models.CharField(primary_key=True, max_length=100, unique=True, default=uuid.uuid4)
     project_name = models.CharField(max_length=64)
-    project_description = models.CharField(max_length=1024)
+    project_description = models.TextField(max_length=2048)
     tech_realm = models.CharField(max_length=64, null=True, choices=TECH_REALM)
     tech_sub_realm = models.CharField(max_length=64, null=True, choices =TECH_SUB_REALM )
     northstar = models.CharField(max_length=64, null=True, choices=NORTH_STAR)
