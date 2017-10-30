@@ -9,7 +9,7 @@
 
   .carousel-caption{
   	background-color: #5e5e5e;
-  	opacity: 0.75;
+  	opacity: 1;
   }
 
   .card-img-top{
@@ -18,8 +18,13 @@
 	color: white;
 	}
 
+	.btn{
+		opacity: 100;
+	}
+
 	.card{
 		width: 40rem;
+		box-shadow: 0 1.5px 5px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
 	}
 	.card-text{
 		font-size: .9rem;
@@ -144,13 +149,14 @@
 
 				<div class="card-deck">
 					{% for project in projects %}
-					<div class="card border-secondary">
-						<h3 class="card-img-top">{{ project.project_name }}</h3>
+					<div class="card border-0 rounded-0">
+						<h4 class="card-img-top font-weight-light rounded-0">{{ project.project_name }}</h4>
 						<div class="card-block pl-2 pb-2">
-							<span class="card-text ">Realm: <span class="text-success">{{project.get_tech_realm_display}}</span></span>
-							<p class="card-text ">Sub-Realm: <span class="text-success">{{project.get_tech_sub_realm_display}}</span></p>
+							<span class="card-text "><span class="font-weight-bold">Realm:</span> <span class="text-success">{{project.get_tech_relm_display}}</span></span>
+							<p class="card-text "><span class="font-weight-bold">Sub-Realm:</span> <span class="text-success">{{project.get_tech_sub_relm_display}}</span></p>
 							<p class="card-text">{{project.project_description}}</p>
-							<a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
+							<a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Go somewhere</a>
+
 						</div>
 					</div>
 					{% endfor %}

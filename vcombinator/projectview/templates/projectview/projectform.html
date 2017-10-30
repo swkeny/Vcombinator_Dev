@@ -5,12 +5,14 @@
 {% load staticfiles %}
 
 <style>
-
+.form-control{
+box-shadow: 0 1.5px 5px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
 </style>
 
 <body>
 
-<div class="container">
+<div class="container pb-3">
 <form>
 <div class="form-group">
   <label for="entrepreneur">Name of entrepreneur:</label>
@@ -72,6 +74,7 @@
   <textarea class="form-control" rows="3" id="why_this_idea">Been interested in web scraping and have been teaching myself a bit on it. Came across the application of this in the ABS space after having lunch with a friend there.</textarea>
 </div>
 </form>
+  <a href="#" class="btn btn-md btn-primary">Submit</a>
 </div>
 </body>
 {% include "footer.html" %}

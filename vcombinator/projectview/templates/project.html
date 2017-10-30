@@ -1,7 +1,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-{% load staticfiles %}
-<link href="{% static '/project.css' %}" rel="stylesheet"/>
+<link href="/static/project.css" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.js"></script>
 
 
@@ -26,30 +25,39 @@
 <!--</ul>-->
 <!--</nav>-->
 
-<article>
-    <div class='content'>
 
+
+
+
+
+
+<div class='container-fluid'>
         <div class="row">
-            <div class="col-md-8"> <span id='tree'></span> </div>
-            <div class="col-md-4"> <div id='vid-container'> <embed id='vid'/></div>
+        <div class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+        {% include "left_nav.html" %}
+        </div>
+        <div class="col">
+            <div> <span id='tree'></span> </div>
+            <div> <span id='vid-container'> <embed id='vid'/></span>
             </div>
         </div>
+
     </div>
-    <script>
+        </div>
+<script>
 $( document ).ready(function() {
-    $.get( "/projects", {} )
+    $.get( "http://localhost:8000/projects/", {} )
   .done(function( data ) {
     treeData = data;
     loadTreeWidget();
   });
 });
 </script>
-    <!--<script src='projecttree.js'></script>-->
-</article>
+
+
 {% endblock %}
 {% include "footer.html" %}
 
 
-{% load staticfiles %}
-<script src="{% static '/projecttree.js' %}"></script>
+<script src="/static/projecttree.js"></script>
 
