@@ -64,9 +64,10 @@ class Project(models.Model):
 
     def get_team_member_names_str(self):
         project_resources = ProjectResource.objects.filter(project_id=self.project_id)
+        project_resources = project_resources.order_by('-project_lead')
         team_names_list = [pr.resource.resource_name for pr in project_resources]
         team_names_str = ", ".join(team_names_list)
-        return team_names_str
+        return "(Lead) " + team_names_str
 
     class Meta:
         db_table = 'projects'
