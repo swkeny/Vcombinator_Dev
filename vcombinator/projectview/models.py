@@ -5,6 +5,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.utils import timezone as tz
+from django.utils.html import format_html
+from random import randint
 
 class Resource(models.Model):
     resource_id = models.CharField(primary_key=True, max_length=100, unique=True, default=uuid.uuid4)
@@ -61,6 +63,29 @@ class Project(models.Model):
     def get_team_member_names(self):
         project_resources = ProjectResource.objects.filter(project_id=self.project_id)
         return [pr.resource.resource_name for pr in project_resources]
+
+    def get_project_rating(self):
+        randomint = randint(1, 3)
+        spanone = ""
+        spantwo = ""
+        spanthree = ""
+
+        if randomint == 1:
+            spanone = "<span class='oi oi-star text-primary'></span>"
+            spantwo = "<span class='oi oi-star text-muted'></span>"
+            spanthree = "<span class='oi oi-star text-muted'></span>"
+
+        if randomint == 2:
+            spanone = "<span class='oi oi-star text-primary'></span>"
+            spantwo = "<span class='oi oi-star text-primary'></span>"
+            spanthree = "<span class='oi oi-star text-muted'></span>"
+
+        if randomint == 3:
+            spanone = "<span class='oi oi-star text-primary'></span>"
+            spantwo = "<span class='oi oi-star text-primary'></span>"
+            spanthree = "<span class='oi oi-star text-primary'></span>"
+
+        return format_html(spanone + spantwo + spanthree)
 
     def get_team_member_names_str(self):
         project_resources = ProjectResource.objects.filter(project_id=self.project_id)
