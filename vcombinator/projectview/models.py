@@ -21,18 +21,20 @@ class Project(models.Model):
 
     TECH_REALM = (
         ('DATA', 'Data Analytics'),
-        ('PLAT', 'Platforms/Visualization'),
-        ('INFRA', 'Market Infrastructure'),
+        ('PLAT', 'Visualization Platforms - AR/VR'),
+        ('INFRA', 'Automated Platforms'),
     )
 
     TECH_SUB_REALM = (
         ('DLT', 'Distributed Ledger Technology'),
-        ('PYT', 'Python'),
-        ('DNJ', 'Django'),
+        ('ML', 'Machine Learning'),
+        ('DA', 'Data Analytics'),
+        ('AR', 'Augmented Reality'),
+        ('VR', 'Virtual Reality'),
     )
 
     NORTH_STAR = (
-        ('alpha', 'More Efficient and New Sources of Alpha'),
+        ('alpha', 'Generate Alpha'),
         ('cost', 'Lower Cost to Invest'),
         ('markets', 'Enable New Markets'),
         ('risk', 'Eliminate Uncompensated Risk'),
