@@ -155,7 +155,9 @@
 						<div class="card-text "><span class="font-weight-bold">North Star:</span> <span class="text-success">{{project.get_northstar_display}}</span></div>
 						<div class="card-text "><span class="font-weight-bold">Technology Realm:</span> <span class="text-success">{{project.get_tech_realm_display}}</span></div>
 						<p class="card-text "><span class="font-weight-bold">Sub-Realm:</span> <span class="text-success">{{project.get_tech_sub_realm_display}}</span></p>
-						<p class="card-textn text-truncate">{{project.project_description}}</p>
+						<p class="card-text text-truncate">{{project.project_description}}</p>
+						<span class="card-text "><span class="font-weight-bold">Meet the Team</span> </span>
+						<p class="card-text"> <span class="text-primary">{{project.get_team_member_names_str}}</span></p>
 					</div>
 					<div class="card-footer bg-transparent text-left border-top-0 ">
 							<a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Project Page</a>
