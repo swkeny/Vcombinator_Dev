@@ -21,8 +21,8 @@ class Project(models.Model):
 
     TECH_REALM = (
         ('DATA', 'Data Analytics'),
-        ('PLAT', 'Visualization Platforms - AR/VR'),
-        ('INFRA', 'Automated Platforms'),
+        ('PLAT', 'Platforms/Visualizations'),
+        ('INFRA', 'Market Infrastructure'),
     )
 
     TECH_SUB_REALM = (
@@ -34,7 +34,7 @@ class Project(models.Model):
     )
 
     NORTH_STAR = (
-        ('alpha', 'Generate Alpha'),
+        ('alpha', 'New Sources of Alpha'),
         ('cost', 'Lower Cost to Invest'),
         ('markets', 'Enable New Markets'),
         ('risk', 'Eliminate Uncompensated Risk'),
