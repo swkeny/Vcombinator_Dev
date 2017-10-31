@@ -23,7 +23,7 @@
 	}
 
 	.card{
-		width: 40rem;
+		width: 30rem;
 		box-shadow: 0 1.5px 5px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
 	}
 	.card-text{
@@ -143,33 +143,35 @@
 	<!--<img class="mySlides" src="{% static '/images/pexels-photo-355988.jpeg' %}" width='100%' height='350'/>-->
 	<!--<img class="mySlides" src="{% static '/images/pexels-photo-256307.jpeg' %}" width='100%' height='350'/>-->
 	<!--</div>-->
-	<div class="container marketing">
-		<div class="row">
-			<ul>
 
-				<div class="card-deck">
-					{% for project in projects %}
-					<div class="card border-0 rounded-0">
-						<h4 class="card-img-top font-weight-light rounded-0">{{ project.project_name }}</h4>
-						<div class="card-block pl-2 pb-2">
-							<span class="card-text "><span class="font-weight-bold">North Star:</span> <span class="text-success">{{project.get_northstar_display}}</span></span>
-							<p class="card-text "><span class="font-weight-bold">Technology Realm:</span> <span class="text-success">{{project.get_tech_realm_display}}</span></p>
-							<p class="card-text">{{project.project_description}}</p>
-							<a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Project Page</a>
+	<div class="row">
+		<ul>
 
-						</div>
+			<div class="card-deck">
+				{% for project in projects %}
+				<div class="card border-0 rounded-0">
+					<h4 class="card-img-top font-weight-light rounded-0">{{ project.project_name }}</h4>
+					<div class="card-body pl-2 pb-2">
+						<div class="card-text "><span class="font-weight-bold">North Star:</span> <span class="text-success">{{project.get_northstar_display}}</span></div>
+						<div class="card-text "><span class="font-weight-bold">Technology Realm:</span> <span class="text-success">{{project.get_tech_realm_display}}</span></div>
+						<p class="card-text "><span class="font-weight-bold">Sub-Realm:</span> <span class="text-success">{{project.get_tech_sub_realm_display}}</span></p>
+						<p class="card-textn text-truncate">{{project.project_description}}</p>
 					</div>
-					{% endfor %}
-
-					<!--<img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                    -->
-					<!--<img class="img-circle" src={{ projectimage.image_location }} alt="Generic placeholder image" width="140" height="140">-->
-
+					<div class="card-footer bg-transparent text-left border-top-0 ">
+							<a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Project Page</a>
+						</div>
 				</div>
+				{% endfor %}
 
-			</ul>
-		</div>
+				<!--<img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                -->
+				<!--<img class="img-circle" src={{ projectimage.image_location }} alt="Generic placeholder image" width="140" height="140">-->
+
+			</div>
+
+		</ul>
 	</div>
+
 
 	<!--<div ng-app='myApp'-->
 	<!--ng-controller="myCtrl">-->
