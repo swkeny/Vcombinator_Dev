@@ -32,10 +32,10 @@
     <a class="navbar-brand" href="/main"><img src="{% static '/images/vcomp_logo_words.png' %}"  height="50"/></a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link active" href="/main">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link {% if active == 'home' %} active {% endif %}" href="/main" >Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="#">Login</a>
-            <a class="nav-item nav-link" href="/projecttree">Projects</a>
-            <a class="nav-item nav-link" href=/projects/projectform>Submit Project</a>
+            <a class="nav-item nav-link {% if active == 'project' %} active {% endif %}" href="/projecttree">Projects</a>
+            <a class="nav-item nav-link {% if active == 'projectform' %} active {% endif %}" href=/projects/projectform>Submit Project</a>
             <a class="nav-item nav-link" href="#">Subscribe for Updates</a>
         </div>
     </div>
