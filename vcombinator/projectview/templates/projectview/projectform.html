@@ -1,77 +1,85 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-{% include "nav.html" %}
+{% include "nav.html" with active='projectform' %}
 {% load staticfiles %}
 
 <style>
 .form-control{
 box-shadow: 0 1.5px 5px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
 }
+
+.form-group{
+padding-bottom: 20px;
+}
+
 </style>
 
 <body>
 
-<div class="container pb-3 ">
+<div class="container pb-3 pt-3">
+  <div class="row">
+    <p class="text-left font-weight-light h2 text-success">Submit a Project</p>
+  </div>
 <form>
 <div class="form-group">
-  <label for="entrepreneur">Name of entrepreneur:</label>
-  <textarea class="form-control" rows="1" id="entrepreneur">John Cleese</textarea>
+  <label class="h6 text-dark" for="entrepreneur">Name of entrepreneur:</label>
+  <textarea class="form-control text-muted noresize" rows="1" id="entrepreneur">John Cleese</textarea>
 </div>
 
 <div class="form-group">
-  <label for="idea">Name of idea:</label>
-  <textarea class="form-control" rows="3" id="idea">Reg AB Filing Decomposition</textarea>
+  <label class="h6 text-dark" for="idea">Name of idea:</label>
+  <textarea class="form-control text-muted noresize" rows="3" id="idea">Reg AB Filing Decomposition</textarea>
 </div>
 
 <div class="form-group">
-  <label for="description">1-2 sentence description of your idea:</label>
-  <textarea class="form-control" rows="3" id="description">Granular, loan level detail would give asset backed security credit analysts better information regarding quality of potential deals. New SEC filings have data that could be scraped and analyzed.</textarea>
+  <label class="h6 text-dark" for="description">1-2 sentence description of your idea:</label>
+  <textarea class="form-control text-muted noresize" rows="3" id="description">Granular, loan level detail would give asset backed security credit analysts better information regarding quality of potential deals. New SEC filings have data that could be scraped and analyzed.</textarea>
 </div>
 
 <div class="form-group">
-  <label for="technology">Describe the technology you are interested in experimenting with. What is it? What does it do?</label>
-  <textarea class="form-control" rows="3" id="technology">I am interested in building a utility that would automatically scrape data from SEC filings and then build visualizations around that data. Additionally we could perform analysis to determine if there are any predictive analytics that could be built that correlate the detailed data to performance of these securities. Technology would be Python coding and some potential machine learning libraries TBD.</textarea>
+  <label class="h6 text-dark" for="technology">Describe the technology you are interested in experimenting with. What is it? What does it do?</label>
+  <textarea class="form-control text-muted noresize" rows="3" id="technology">I am interested in building a utility that would automatically scrape data from SEC filings and then build visualizations around that data. Additionally we could perform analysis to determine if there are any predictive analytics that could be built that correlate the detailed data to performance of these securities. Technology would be Python coding and some potential machine learning libraries TBD.</textarea>
 </div>
 
 <div class="form-group">
-  <label for="business_impact">What business opportunity do you think this technology could address?</label>
-  <textarea class="form-control" rows="3" id="business_impact">We don’t have access to this level of detail now. Credit decisions are based on higher level information at the securitized level only. Understanding the underlying characteristics of the loans could be useful information.</textarea>
+  <label class="h6 text-dark" for="business_impact">What business opportunity do you think this technology could address?</label>
+  <textarea class="form-control text-muted noresize" rows="3" id="business_impact">We don’t have access to this level of detail now. Credit decisions are based on higher level information at the securitized level only. Understanding the underlying characteristics of the loans could be useful information.</textarea>
 </div>
 
 <div class="form-group">
-  <label for="impact">How would this impact investment performance and/or make capital markets work better?</label>
-  <textarea class="form-control" rows="3" id="impact">This could help generate better insights for our portfolio managers and/or the credit analysts on the ABS desk. Better insights could lead to better investment decisions which could then lead to better performance.</textarea>
+  <label class="h6 text-dark" for="impact">How would this impact investment performance and/or make capital markets work better?</label>
+  <textarea class="form-control text-muted noresize" rows="3" id="impact">This could help generate better insights for our portfolio managers and/or the credit analysts on the ABS desk. Better insights could lead to better investment decisions which could then lead to better performance.</textarea>
 </div>
 
 <div class="form-group">
-  <label for="whats_new">Whats new about what you would like to experiment with?</label>
-  <textarea class="form-control" rows="3" id="whats_new"> Would like to experiment with scraping text from websites – from SEC.gov in particular. But the utility could be used for any website. I would also like to experiment with several different visualization tools, Tableau potentially being one of them. TBD on machine learning packages but that would be new as well.</textarea>
+  <label class="h6 text-dark" for="whats_new">Whats new about what you would like to experiment with?</label>
+  <textarea class="form-control text-muted noresize" rows="3" id="whats_new"> Would like to experiment with scraping text from websites – from SEC.gov in particular. But the utility could be used for any website. I would also like to experiment with several different visualization tools, Tableau potentially being one of them. TBD on machine learning packages but that would be new as well.</textarea>
 </div>
 
 <div class="form-group">
-  <label for="work_done">What work have you done to develop this idea?</label>
-  <textarea class="form-control" rows="3" id="work_done">I’ve been able to experiment a bit on my own with the web scraping utility. I’ve been learning how to do it with Python and have done some work with the free Twitter API. I think I have a model that could work.</textarea>
+  <label class="h6 text-dark" for="work_done">What work have you done to develop this idea?</label>
+  <textarea class="form-control text-muted noresize" rows="3" id="work_done">I’ve been able to experiment a bit on my own with the web scraping utility. I’ve been learning how to do it with Python and have done some work with the free Twitter API. I think I have a model that could work.</textarea>
 </div>
 
 <div class="form-group">
-  <label for="tested_idea">How have you tested or prototyped the idea to this point?</label>
-  <textarea class="form-control" rows="3" id="tested_idea">I have not tested it with SEC.gov yet.</textarea>
+  <label class="h6 text-dark" for="tested_idea">How have you tested or prototyped the idea to this point?</label>
+  <textarea class="form-control text-muted noresize" rows="3" id="tested_idea">I have not tested it with SEC.gov yet.</textarea>
 </div>
 
 <div class="form-group">
-  <label for="resources_needed">What resources do you think you need to experiment? (e.g, SME support from IMFS team, access to the IMFS lab, specific IT or other)</label>
-  <textarea class="form-control" rows="3" id="resources_needed">I would love access to a lab environment to test this. I need some access to a FIG subject matter expertise that would be able to tell me which data fields are most important or interesting and someone to validate visualizations that are created. Also maybe some data science subject expertise to help validate some of my assumptions.</textarea>
-</div>
-
-<div class="f   orm-group">
-  <label for="time_commitment">How much time are you willing to commit to owning this experiment over a 4-month period?</label>
-  <textarea class="form-control" rows="3" id="time_commitment">I should be able to commit to an hour a day. I’m willing to work on this during my lunch. Would have to pull back on that during major elevation weeks.</textarea>
+  <label class="h6 text-dark" for="resources_needed">What resources do you think you need to experiment? (e.g, SME support from IMFS team, access to the IMFS lab, specific IT or other)</label>
+  <textarea class="form-control text-muted noresize" rows="3" id="resources_needed">I would love access to a lab environment to test this. I need some access to a FIG subject matter expertise that would be able to tell me which data fields are most important or interesting and someone to validate visualizations that are created. Also maybe some data science subject expertise to help validate some of my assumptions.</textarea>
 </div>
 
 <div class="form-group">
-  <label for="why_this_idea">Why did you pick this idea?</label>
-  <textarea class="form-control" rows="3" id="why_this_idea">Been interested in web scraping and have been teaching myself a bit on it. Came across the application of this in the ABS space after having lunch with a friend there.</textarea>
+  <label class="h6 text-dark" for="time_commitment">How much time are you willing to commit to owning this experiment over a 4-month period?</label>
+  <textarea class="form-control text-muted noresize" rows="3" id="time_commitment">I should be able to commit to an hour a day. I’m willing to work on this during my lunch. Would have to pull back on that during major elevation weeks.</textarea>
+</div>
+
+<div class="form-group">
+  <label class="h6 text-dark" for="why_this_idea">Why did you pick this idea?</label>
+  <textarea class="form-control text-muted noresize" rows="3" id="why_this_idea">Been interested in web scraping and have been teaching myself a bit on it. Came across the application of this in the ABS space after having lunch with a friend there.</textarea>
 </div>
 </form>
   <a href="#" class="btn btn-md btn-primary float-right">Submit</a>
