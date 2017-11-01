@@ -10,7 +10,7 @@
 
 
   .carousel-caption{
-  	background-color: rgba(94, 94, 94, .8);
+  	background-color: rgba(94, 94, 94, .5);
   }
 
 
@@ -42,15 +42,15 @@
 		color: #0D4372; /* old IE */
 		background-color: #0D4372; /* Modern Browsers */
 	}
-	h5{
-		color: #5591C5;
+	h3{
+		color: #0D4372;
 	}
 
   </style>
 {% include "nav.html" with active='home' %}
 {% load staticfiles %}
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid font-weight-light">
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="10000">
 
 
@@ -77,7 +77,7 @@
 				<img class="d-block img-fluid" src="{% static '/images/pexels-photo-325229.jpeg' %}" alt="Second slide" >
 				<div class="carousel-caption rounded">
 					<h3>Next Generation Technology</h3>
-					<p>Work along side IMFS to experiment with new technology.</p>
+					<p>Work alongside IMFS to experiment with new technologies</p>
 					<p><a class="btn btn-success" href="#" role="button">Learn More</a></p>
 				</div>
 			</div>
@@ -105,18 +105,37 @@
 
 
 
+<!--<div class ="container" style="padding:25px;">-->
+<!--<div class="row">-->
+<!--<div class="col col-md-auto">-->
+<!--<h3 class="font-weight-light">What are we up to now?</h3>-->
+<!--</div>-->
+<!--<div class="col">-->
+<!--<hr class="hr-color">-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 <div class ="container" style="padding:25px;">
 	<div class="row">
-		<div class="col col-md-auto">
-			<h5>What are we up to now?</h5>
+		<div class="col">
+
 		</div>
 		<div class="col">
+			<h3 class="font-weight-light text-center" style="color: #0D4372;">What are we up to now?</h3>
 			<hr class="hr-color">
+		</div>
+		<div class="col">
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+
 		</div>
 	</div>
 </div>
 
-<div class ="container">
+<div class ="container font-weight-light">
 
 	<!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
 	<!--<style>-->
@@ -151,7 +170,7 @@
 	<!--</div>-->
 
 	<div class="row">
-		<ul>
+
 			<div class="card-deck">
 				{% for project in projects %}
 				<div class="card border-0 rounded-0">
@@ -179,7 +198,7 @@
 
 			</div>
 
-		</ul>
+
 	</div>
 </div>
 {% endblock %}
